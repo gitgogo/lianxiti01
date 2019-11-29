@@ -4,8 +4,9 @@
 # datetime:2019-11-29 17:59
 # software: PyCharm
 
-# 指定位数的验证码
 import random
+
+# 指定位数的验证码
 def auth_code(len=4):
     all = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     s = ''
@@ -13,6 +14,93 @@ def auth_code(len=4):
         s += random.choice(all)
     return s
 
+# 两数之和
+def two(a, item):
+    d = {}
+    for i, j in enumerate(a, 1):
+        h = item - j
+        if h in d:
+            return [i, d[h]]
+        else:
+            d[j] = i
+
+# 完全数
+def perfect_num(num):
+    sum = 0
+    for i in range(1, num):
+        if num % i == 0:
+            sum += i
+    if sum == num:
+        return True
+    return False
+
+# 斐波那契数列
+def fib(n):
+    a, b = 0, 1
+    l = []
+    for i in range(n):
+        l.append(b)
+        a, b = b, a+b
+    return l
+
+# 素数
+def prime_num(num):
+    if num in [1,2]:
+        return True
+    for i in range(2,num):
+        if num % i == 0:
+            return False
+    return True
+
+# 水仙花数
+def daffodil_num(num):
+    if num/100 < 1 or num/100 > 9:
+        return False
+    if pow(num%10,3)+pow((num//10)%10,3)+pow(num//100, 3) == num:
+        return True
+
+# 正整数反转
+def reverse_num(num):
+    n2 = 0
+    while num > 0:
+        n2 = n2*10 + num%10
+        num //= 10
+    return n2
+
+# 最大公约数
+def common_div(num1, num2):
+    n = min(num1, num2)
+    for i in range(n,1,-1):
+        if num1%i == 0 and num2%i == 0:
+            return i
+    return -1
+
+# 最小公倍数
+def common_mul(num1, num2):
+    n = max(num1, num2)
+    for i in range(1, num1*num2):
+        ns = n*i
+        if ns%num1 == 0 and ns%num2 == 0:
+            return ns
+    return num1*num2
+
+# 回文数
+def recur_num(num):
+    temp = num
+    n = 0
+    while temp > 0:
+        n = n*10 + temp%10
+        temp //= 10
+    if n == num:
+        return True
+    return False
+
 
 if __name__ == '__main__':
+    # print(two(data, 4))
+    # print(search2(b, 12))
+    print([x for x in range(1, 1000) if daffodil_num(x)])
+    print(fib(10))
+    print(recur_num(35953))
     print(auth_code(8))
+
