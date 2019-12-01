@@ -95,12 +95,40 @@ def recur_num(num):
         return True
     return False
 
+# 取给定数组中最大和第二大的数
+def max2(x):
+    m1, m2 = (x[0], x[1]) if x[0] > x[1] else (x[1], x[0])
+    for i in range(2, len(x)):
+        if x[i] > m1:
+            m2 = m1
+            m1 = x[i]
+        elif x[i] > m2:
+            m2 = x[i]
+    return m1, m2
+
+# 约瑟夫环问题
+def main2():
+    peoples = [True]*30
+    count = index = num = 0
+    while count < 15:
+        if peoples[index]:
+            num += 1
+            if num == 9:
+                count += 1
+                peoples[index] = False
+                num = 0
+        index += 1
+        index %= 30
+    return peoples
+
 
 if __name__ == '__main__':
+    a = [1, 8, 5, 4, 0, 9, 6, 3, 7, 2]
     # print(two(data, 4))
     # print(search2(b, 12))
-    print([x for x in range(1, 1000) if daffodil_num(x)])
-    print(fib(10))
-    print(recur_num(35953))
-    print(auth_code(8))
+    # print([x for x in range(1, 1000) if daffodil_num(x)])
+    # print(fib(10))
+    # print(recur_num(35953))
+    # print(max2(a))
+    print(main2())
 
