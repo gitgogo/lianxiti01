@@ -86,6 +86,3 @@ if __name__ == '__main__':
     # print(quick_sort(data, 0, 7))
     # print(two(data, 4))
     # print(search2(b, 12))
-    print([x for x in range(1, 1000) if daffodil_num(x)])
-    print(fib(10))
-    print(recur_num(35953))
