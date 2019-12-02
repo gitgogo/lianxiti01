@@ -3,7 +3,7 @@
 # @Time    : 2019/12/1 22:55
 # @Author  : ralphliu
 # @Site    : 
-# @File    : prcess_thread.py
+# @File    : process_thread.py
 # @Software: PyCharm
 
 from multiprocessing import Process

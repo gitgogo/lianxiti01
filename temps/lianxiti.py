@@ -5,6 +5,7 @@
 # software: PyCharm
 
 import random
+import heapq
 
 # 指定位数的验证码
 def auth_code(len=4):
@@ -121,6 +122,14 @@ def main2():
         index %= 30
     return peoples
 
+# 百钱白鸡: 公鸡5元一只；母鸡3元一只；小鸡1元3只；用100元买100只鸡
+def money_chicken():
+    for i in range(20):
+        for j in range(33):
+            h = 100 - i - j
+            if i * 5 + j * 3 + h // 3 == 100 and h % 3 ==0:
+                return i, j, h
+
 
 if __name__ == '__main__':
     a = [1, 8, 5, 4, 0, 9, 6, 3, 7, 2]
@@ -130,5 +139,5 @@ if __name__ == '__main__':
     # print(fib(10))
     # print(recur_num(35953))
     # print(max2(a))
-    print(main2())
+    print(money_chicken())
 

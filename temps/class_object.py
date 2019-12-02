@@ -3,7 +3,7 @@
 # @Time    : 2019/12/1 19:40
 # @Author  : ralphliu
 # @Site    : 
-# @File    : study1201-class.py
+# @File    : class_object.py
 # @Software: PyCharm
 
 from time import sleep, localtime, time
