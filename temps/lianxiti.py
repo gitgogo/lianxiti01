@@ -160,36 +160,30 @@ def fun(alist, target):
             j -= 1
     return -1
 
-# N个有序的数组合并成一个数组
-def merge2(alist, blist):
-    i, j = 0, 0
-    result = []
-    while i < len(alist) and j < len(blist):
-        if alist[i] <= blist[j]:
-            result.append(alist[i])
-            i += 1
-        elif alist[i] > blist[j]:
-            result.append(blist[j])
-            j += 1
-    result += alist[i:]
-    result += blist[j:]
 
-def merge_n(x, y, z):
-    return reduce(merge2(x, y), [x, y, z])
+# N个有序的数组合并成一个数组
+def merge_n(nlist):
+    def merge2(alist, blist):
+        i, j = 0, 0
+        result = []
+        while i < len(alist) and j < len(blist):
+            if alist[i] <= blist[j]:
+                result.append(alist[i])
+                i += 1
+            elif alist[i] > blist[j]:
+                result.append(blist[j])
+                j += 1
+        result += alist[i:]
+        result += blist[j:]
+        return result
+    return reduce(lambda x, y: merge2(x, y), nlist)
 
 
 if __name__ == '__main__':
     a = [1, 8, 5, 4, 0, 9, 6, 3, 7, 2]
     b = [2, 4, 5, 8, 10, 11, 20]
+    c = [1, 3, 4, 7, 12]
+    d = [6, 23, 31, 44]
     s = "123.45.33.211?21.23.44.122?!10.11.23.22!kk.90.77.122"
-    # print(two(data, 4))
-    # print(search2(b, 12))
-    # print([x for x in range(1, 1000) if daffodil_num(x)])
-    # print(fib(10))
-    # print(recur_num(35953))
-    # print(max2(a))
-    print(money_chicken())
-    get_ip(s)
+    print(merge_n([b, c, d]))
 
-    # print(money_chicken())
-    print(fun(b, 16))
