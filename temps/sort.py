@@ -85,4 +85,4 @@ if __name__ == '__main__':
     # print(merge_sort(data))
     # print(quick_sort(data, 0, 7))
     # print(two(data, 4))
-    # print(search2(b, 12))
+    print(search2(b, 12))

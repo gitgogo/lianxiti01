@@ -21,7 +21,7 @@ def two(a, item):
     for i, j in enumerate(a, 1):
         h = item - j
         if h in d:
-            return [i, d[h]]
+            return [d[h], i]
         else:
             d[j] = i
 
@@ -131,13 +131,28 @@ def money_chicken():
                 return i, j, h
 
 
+# 两数之和 有序数组
+def fun(alist, target):
+    i, j = 0, len(alist)-1
+    while j > i:
+        two = alist[i] + alist[j]
+        if two == target:
+            return i, j
+        elif two < target:
+            i += 1
+        else:
+            j -= 1
+    return -1
+
+
 if __name__ == '__main__':
     a = [1, 8, 5, 4, 0, 9, 6, 3, 7, 2]
+    b = [2, 4, 5, 8, 10, 11, 20]
     # print(two(data, 4))
     # print(search2(b, 12))
     # print([x for x in range(1, 1000) if daffodil_num(x)])
     # print(fib(10))
     # print(recur_num(35953))
     # print(max2(a))
-    print(money_chicken())
-
+    # print(money_chicken())
+    print(fun(b, 16))
