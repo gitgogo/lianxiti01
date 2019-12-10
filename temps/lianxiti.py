@@ -6,6 +6,7 @@
 
 import random
 import heapq
+from functools import reduce
 
 # 指定位数的验证码
 def auth_code(len=4):
@@ -143,6 +144,23 @@ def fun(alist, target):
         else:
             j -= 1
     return -1
+
+# N个有序的数组合并成一个数组
+def merge2(alist, blist):
+    i, j = 0, 0
+    result = []
+    while i < len(alist) and j < len(blist):
+        if alist[i] <= blist[j]:
+            result.append(alist[i])
+            i += 1
+        elif alist[i] > blist[j]:
+            result.append(blist[j])
+            j += 1
+    result += alist[i:]
+    result += blist[j:]
+
+def merge_n(x, y, z):
+    return reduce(merge2(x, y), [x, y, z])
 
 
 if __name__ == '__main__':
