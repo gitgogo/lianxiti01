@@ -85,3 +85,4 @@ nb-configuration.xml
 ## pycharm
 ##############################
 .pyc
+__pycache__/
