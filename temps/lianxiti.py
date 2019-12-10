@@ -7,6 +7,7 @@
 import random
 import heapq
 from functools import reduce
+import re
 
 # 指定位数的验证码
 def auth_code(len=4):
@@ -22,7 +23,7 @@ def two(a, item):
     for i, j in enumerate(a, 1):
         h = item - j
         if h in d:
-            return [d[h], i]
+            return [i, d[h]]
         else:
             d[j] = i
 
@@ -132,6 +133,20 @@ def money_chicken():
                 return i, j, h
 
 
+# 从s = "123.45.33.211?21.23.44.122?!10.11.23.22!kk.90.77.122" 中获取ip 并以ip的最后一个字段排序
+def get_ip(s):
+    ip_list = re.split(r'\?|!', s)
+    ip_list = [x for x in ip_list if is_ip(x)]
+    return sorted(ip_list, key=lambda x: int(x.split('.')[-1]), reverse=True)
+
+
+def is_ip(ip):
+    if re.match(r'(\d{1,3}\.){3}\d{1,3}', ip):
+        return True
+    else:
+        return False
+
+
 # 两数之和 有序数组
 def fun(alist, target):
     i, j = 0, len(alist)-1
@@ -166,11 +181,15 @@ def merge_n(x, y, z):
 if __name__ == '__main__':
     a = [1, 8, 5, 4, 0, 9, 6, 3, 7, 2]
     b = [2, 4, 5, 8, 10, 11, 20]
+    s = "123.45.33.211?21.23.44.122?!10.11.23.22!kk.90.77.122"
     # print(two(data, 4))
     # print(search2(b, 12))
     # print([x for x in range(1, 1000) if daffodil_num(x)])
     # print(fib(10))
     # print(recur_num(35953))
     # print(max2(a))
+    print(money_chicken())
+    get_ip(s)
+
     # print(money_chicken())
     print(fun(b, 16))
