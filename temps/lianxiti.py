@@ -179,11 +179,51 @@ def merge_n(nlist):
     return reduce(lambda x, y: merge2(x, y), nlist)
 
 
+# 最长对称字符串
+def longest_str(s):
+    max = 1
+    for i in range(len(s)):
+        for j in range(i+1, len(s)):
+            if s[i:j+1] == s[i:j+1][::-1] and j-i>max:
+                max = j+1-i
+    return max
+
+
+# 删除对称字符串 abcbd-->ad  abcbag-->g
+def remove_str(s):
+    i, j = 0, 1
+    while i < len(s)-1:
+        if s[i:j+1] == s[i:j+1][::-1]:
+            s = s[:i]+s[j+1:]
+            i, j = 0, 1
+        elif j < len(s)-1:
+            j += 1
+        else:
+            i += 1
+            j = i+1
+    return s
+
+
+# 冒泡排序用 while写法
+def sorted2(alist):
+    i, j = 0, 0
+    while i < len(alist)-1:
+        if j < len(alist)-1-i and alist[j] > alist[j+1]:
+            alist[j], alist[j+1] = alist[j+1], alist[j]
+            j += 1
+        elif j < len(alist)-1-i:
+            j += 1
+        else:
+            i += 1
+            j = 0
+    return alist
+
+
 if __name__ == '__main__':
-    a = [1, 8, 5, 4, 0, 9, 6, 3, 7, 2]
+    a = [1, 8, 5, 4, 0, 7, 9, 2, 11]
     b = [2, 4, 5, 8, 10, 11, 20]
     c = [1, 3, 4, 7, 12]
     d = [6, 23, 31, 44]
     s = "123.45.33.211?21.23.44.122?!10.11.23.22!kk.90.77.122"
-    print(merge_n([b, c, d]))
-
+    # print(longest_str('gooogooole'))
+    print(sorted2(a))
