@@ -30,6 +30,8 @@ def the_second_num(alist):
 def get_largest_str(s):
     d = {}
     for i in s:
+        if i in d:
+            continue
         d[i] = s.count(i)
     max_str = max(d, key=lambda x: d[x])
     return max_str, d[max_str]
