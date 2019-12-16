@@ -16,3 +16,17 @@
 15. 一行代码实现1-100之和
 16. new和init函数的区别；name、file、class内置方法
 17. python中with的用法
+18. python中map、reduce、filter方法的使用
+```python
+from functools import reduce
+# 1-100求和
+reduce(lambda x,y: x+y, range(1,101))
+# 1-100中的奇数
+filter(lambda x: x%2, range(1,101))
+[x for x in range(1,101) if x%2]
+# 1-100每个数2次方输出
+map(lambda x: x**2, range(1,101))
+# 展开二维数组 e=[[1,2],[3,4],[5,6]]
+[i for j in e for i in j]
+```
+1. 
