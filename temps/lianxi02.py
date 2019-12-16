@@ -33,8 +33,8 @@ def get_largest_str(s):
         if i in d:
             continue
         d[i] = s.count(i)
-    max_str = max(d, key=lambda x: d[x])
-    return max_str, d[max_str]
+    max_str = max(d.items(), key=lambda x: x[1])
+    return max_str
 
 
 if __name__ == '__main__':
