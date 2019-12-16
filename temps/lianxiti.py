@@ -27,7 +27,7 @@ def two(a, item):
         else:
             d[j] = i
 
-# 完全数
+# 完全数 如第一个完全数是6，它有约数1、2、3、6，除去它本身6外，其余3个数相加，1+2+3＝6，恰好等于本身
 def perfect_num(num):
     sum = 0
     for i in range(1, num):
