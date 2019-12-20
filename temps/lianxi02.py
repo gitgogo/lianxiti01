@@ -31,8 +31,9 @@ def get_largest_str(s):
     d = {}
     for i in s:
         if i in d:
-            continue
-        d[i] = s.count(i)
+            d[i] += 1
+        else:
+            d[i] = 1
     max_str = max(d.items(), key=lambda x: x[1])
     return max_str
 
