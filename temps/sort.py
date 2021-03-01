@@ -32,6 +32,7 @@ def merge(data):
             right_p += 1
     result += left[left_p:]
     result += right[right_p:]
+    return result
 
 
 def quick_sort(alist, first, last):
