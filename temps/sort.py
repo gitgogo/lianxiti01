@@ -7,10 +7,10 @@
 
 def maopao(data):
     n = len(data)
-    for i in range(n-1):
-        for j in range(n-1-i):
-            if data[j] > data[j+1]:
-                data[j], data[j+1] = data[j+1], data[j]
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if data[j] > data[j + 1]:
+                data[j], data[j + 1] = data[j + 1], data[j]
     return data
 
 
@@ -50,8 +50,8 @@ def quick_sort(alist, first, last):
         while low < high and alist[low] < mid:
             low += 1
         alist[low], alist[high] = alist[high], alist[low]
-    quick_sort(alist, first, low-1)
-    quick_sort(alist, low+1, last)
+    quick_sort(alist, first, low - 1)
+    quick_sort(alist, low + 1, last)
     return alist
 
 
@@ -69,36 +69,39 @@ def search(a, item):
 
 def search2(a, item):
     if len(a) > 0:
-        mid = len(a)//2
+        mid = len(a) // 2
         if a[mid] == item:
             return True
         elif a[mid] > item:
             return search2(a[:mid], item)
         elif a[mid] < item:
-            return search2(a[mid+1:], item)
+            return search2(a[mid + 1:], item)
     else:
         return False
 
+
 def selectSort(data):
     length = len(data)
-    for i in range(length-1):
+    for i in range(length - 1):
         minindex = i
-        for j in range(i+1, length):
+        for j in range(i + 1, length):
             if data[j] < data[minindex]:
                 minindex = j
         data[i], data[minindex] = data[minindex], data[i]
     return data
 
+
 def findKmin(data, k):
     for i in range(k):
         minindex = i
         minval = data[i]
-        for j in range(i+1, len(data)):
+        for j in range(i + 1, len(data)):
             if data[j] < minval:
                 minval = data[j]
                 minindex = j
         data[i], data[minindex] = data[minindex], data[i]
     return data[:k]
+
 
 def insertSort(arr):
     length = len(arr)
@@ -113,26 +116,28 @@ def insertSort(arr):
         arr[j + 1] = value
     return arr
 
+
 def bubbleSort(arr):
     length = len(arr)
-    for i in range(length-1):
-        for j in range(length-1 -i):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+    for i in range(length - 1):
+        for j in range(length - 1 - i):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
+
 
 def binSearch(arr, tar):
     f, l = 0, len(arr)
     mid = -1
     try:
-        while f<=l and mid<len(arr)-1:
-            mid = (l-f)//2 +f
+        while f <= l and mid < len(arr) - 1:
+            mid = (l - f) // 2 + f
             if tar == arr[mid]:
                 return mid
             elif tar > arr[mid]:
-                f = mid +1
+                f = mid + 1
             elif tar < arr[mid]:
-                l = mid -1
+                l = mid - 1
         return -1
     except Exception as e:
         print(e, mid, l, f)
