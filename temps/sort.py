@@ -79,11 +79,65 @@ def search2(a, item):
     else:
         return False
 
+def selectSort(data):
+    length = len(data)
+    for i in range(length-1):
+        minindex = i
+        for j in range(i+1, length):
+            if data[j] < data[minindex]:
+                minindex = j
+        data[i], data[minindex] = data[minindex], data[i]
+    return data
+
+def findKmin(data, k):
+    for i in range(k):
+        minindex = i
+        minval = data[i]
+        for j in range(i+1, len(data)):
+            if data[j] < minval:
+                minval = data[j]
+                minindex = j
+        data[i], data[minindex] = data[minindex], data[i]
+    return data[:k]
+
+def insertSort(arr):
+    length = len(arr)
+    if length <= 1:
+        return
+    for i in range(1, length):
+        value = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > value:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = value
+    return arr
+
+def bubbleSort(arr):
+    length = len(arr)
+    for i in range(length-1):
+        for j in range(length-1 -i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+def binSearch(arr, tar):
+    f, l = 0, len(arr)
+    mid = -1
+    try:
+        while f<=l and mid<len(arr)-1:
+            mid = (l-f)//2 +f
+            if tar == arr[mid]:
+                return mid
+            elif tar > arr[mid]:
+                f = mid +1
+            elif tar < arr[mid]:
+                l = mid -1
+        return -1
+    except Exception as e:
+        print(e, mid, l, f)
+
 
 if __name__ == '__main__':
     data = [12, 23, 3, 33, 10, 1, 41, 5]
     b = maopao(data)
-    # print(merge_sort(data))
-    # print(quick_sort(data, 0, 7))
-    # print(two(data, 4))
-    print(search2(b, 12))
