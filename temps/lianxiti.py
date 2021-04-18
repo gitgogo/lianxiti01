@@ -205,7 +205,7 @@ def longest_str(s):
     max = 1
     for i in range(len(s)):
         for j in range(i + 1, len(s)):
-            if s[i:j + 1] == s[i:j + 1][::-1] and j - i > max:
+            if s[i:j + 1] == s[i:j + 1][::-1] and j+1 - i > max:
                 max = j + 1 - i
     return max
 
@@ -269,5 +269,5 @@ if __name__ == '__main__':
     c = [1, 3, 4, 7, 12]
     d = [6, 23, 31, 44]
     s = "123.45.33.211?21.23.44.122?!10.11.23.22!kk.90.77.122"
-    # print(longest_str('gooogooole'))
-    print(reverse_int(1342))
+    print(longest_str('ujiwigqi'))
+    # print(reverse_int(1342))
