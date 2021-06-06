@@ -131,7 +131,7 @@ def binSearch(arr, tar):
     mid = -1
     try:
         while f <= l and mid < len(arr) - 1:
-            mid = (l - f) // 2 + f
+            mid = (l + f) // 2
             if tar == arr[mid]:
                 return mid
             elif tar > arr[mid]:

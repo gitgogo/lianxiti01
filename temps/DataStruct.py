@@ -4,6 +4,7 @@ class Node:
 		self.item = item
 		self.next = None
 
+
 class SingleList:
 	def __init__(self):
 		self._head = None
@@ -51,7 +52,7 @@ class SingleList:
 		else:
 			node = Node(item)
 			cur = self._head
-			for i in xrange(index-1):
+			for i in range(index-1):
 				cur = cur.next
 			node.next = cur.next
 			cur.next = node
@@ -83,6 +84,10 @@ class SingleList:
 			else:
 				count += 1
 		return count
+
+
+# 堆数据结构-完全二叉树结构；二叉树遍历
+
 
 
 if __name__ == '__main__':

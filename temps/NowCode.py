@@ -102,7 +102,6 @@ def get_longest_palindrome(s):
     for i in range(len(s)):
         for j in range(i+1, len(s)):
             if s[i:j+1] == s[i:j+1][::-1]:
-                print('i==j',i,j)
                 max_len = max(max_len, len(s[i:j+1]))
     return max_len
 
@@ -131,7 +130,51 @@ def get_longest_palindrome2(A):
     return max(max_offset1 * 2 - 1, max_offset2 * 2)
 
 
+# 判断链表是否有环，返回环的入口; 快慢指针
+def detect_cycle(head):
+    fast = slow = head
+    while fast and fast.next:
+        fast = fast.next.next
+        slow = slow.next
+        if fast == slow:
+            while head != slow:
+                head = head.next
+                slow = slow.next
+            return slow
+    return None
+
+
+def detect_cycle2(head):
+    tmp = set()
+    while head:
+        if head in tmp:
+            return head
+        else:
+            set.add(head)
+            head = head.next
+    return None
+
+
+# 有序二维数组查找-双指针
+
+# 替换空格-双指针
+
+# 矩阵最小路径
+# def min_path(matrix):
+#     n, m = len(matrix), len(matrix[0])
+#     for i in range(n):
+#         for j in range(m):
+
+def func(nums):
+    dic = {}
+    for i in nums:
+        dic[i] = i in dic
+    for i in nums:
+        if not dic[i]:
+            return i
+
+
 if __name__ == '__main__':
     arr = [5, 3, 11, 7, 3, 6, 10, 1, 7, 9]
-    arr1 = [1, 2, 2, 3, 4]
-    print(get_longest_palindrome2('igqqi'))
+    arr1 = [1, 1, 2, 3, 3]
+    print(func(arr1))
